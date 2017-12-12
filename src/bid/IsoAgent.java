@@ -9,12 +9,14 @@ import jade.core.Agent;
 import jade.core.behaviours.*;
 import jade.lang.acl.ACLMessage;
 
+import matlab.TestPlot;
+
 
 public class IsoAgent extends Agent{
 	private static final long serialVersionUID = 1L;
 
 	
-	private int iterMax = 2000;
+	private int iterMax = 3000;
 	private int iter = 0;
 	private GenCoInfo[] genCosInfo;
 	private int genCosNum;
@@ -240,7 +242,7 @@ public class IsoAgent extends Agent{
 			if (++iter >= iterMax) {
 				finished = 0;
 			}
-			System.out.println("*******************************"+ iter +"**********************************");
+//			System.out.println("*******************************"+ iter +"**********************************");
 			
 		}
 		
@@ -256,9 +258,7 @@ public class IsoAgent extends Agent{
 		
 		@Override
 		public void action() {
-			for (double p: clearPrice) {
-				System.out.println(p);
-			}
+			TestPlot.draw(clearPrice);
 		}
 	};
 }
